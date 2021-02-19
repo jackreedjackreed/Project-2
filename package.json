@@ -1,7 +1,6 @@
 {
-  "name": "Project-2",
+  "name": "project-2",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jackreedjackreed/Project-2/issues"
   },
-  "homepage": "https://github.com/jackreedjackreed/Project-2#readme"
+  "homepage": "https://github.com/jackreedjackreed/Project-2#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
