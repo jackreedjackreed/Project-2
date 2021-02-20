@@ -8,22 +8,23 @@ if (process.env.JAWSDB_URL) {
 require("dotenv").config();
 // console.log(process.env.SECRETPASSWORD)
 
-const connection = mysql.createConnection({
+// Dependencies
+//Require this module!
+const Sequelize = require('sequelize');
+
+// Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+const sequelize = new Sequelize('codeWorms_db', 'root', '', {
   host: 'localhost',
   port: 3306,
-  user: 'root',
-  password: process.env.SECRETPASSWORD,
-  database: '', //Enter database here
+  dialect: 'mysql',
+  //Configuration for the machine of thread pools
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000, //stop after 10 seconds if you have issues within database.
+  },
 });
 };
-// Make connection.
-connection.connect((err) => {
-  if (err) {
-    console.error(`error connecting: ${err.stack}`);
-    return;
-  }
-  console.log(`connected as id ${connection.threadId}`);
-});
 
-// Export connection for our ORM to use.
-module.exports = connection;
+// Exports the connection for other files to use
+module.exports = sequelize;
