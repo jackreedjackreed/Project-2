@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+
+function getBooks() {
+
+document.getElementById('results').innerHTML ="";
+fetch("http://openlibrary.org/search.json?q="+document.getElementById("search").value)
+.then(a=>a.json()).then(response=>{
+    for(var i = 0; i<7; i++){document.getElementById("results").innerHTML+="<h3>"+response.docs[i].title+"</h3>"+ response.docs[i].author_name[0] +"<br><img src = 'http://covers.openlibrary.org/b/isbn/"+response.docs[i].isbn[0]+"-M.jpg'><br>";
+
+}
+});
+
+}
+
+
+
+</script>
+
+
+    <title>Book Search</title>
+
+    <input id = "search">
+    <button onclick="getBooks()">Find Books</button>
+    <br>
+
+    <div id = "results"></div>
+
+</head>
+<body>
+    
+</body>
+</html>
