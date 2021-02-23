@@ -1,15 +1,44 @@
+DROP DATABASE IF EXISTS NameGenerator_db;
+CREATE DATABASE NameGenerator_db;
+use NameGenerator_db;
 
-USE codeWorms_db;
+create TABLE adjectives (
+ id INTEGER(200) AUTO_INCREMENT NOT NULL,
+adjective VARCHAR (50),
+primary key (id)
+);
 
-INSERT INTO books (title, author, genre)
-VALUES ("Jimmy's Blues and Other Poems",  "James Baldwin" ,"Poetry"),
-("White Noise", "Don Delillo", "Fiction"),
-("Milk and Honey", "Rupi Kaur", "Poetry"),
-("Harry Potter and the Cursed Child", "J.K. Rowling", "Fantasy");
+create TABLE nouns (
+ id INTEGER(200) AUTO_INCREMENT NOT NULL,
+noun VARCHAR (50),
+primary key (id)
+);
 
-INSERT INTO clubs (club_name, club_password)
-VALUES("Brick by Brick","password1"),
-("Social Norms", "password2");
+create table Generated_Name (
+id integer (200) auto_increment not null,
+last_name varchar (50),
+first_name varchar (50),
+primary key (id)
+);
+
+create TABLE adjectives (
+ id INTEGER(200) AUTO_INCREMENT NOT NULL,
+adjective VARCHAR (50),
+primary key (id)
+);
+
+create TABLE nouns (
+ id INTEGER(200) AUTO_INCREMENT NOT NULL,
+noun VARCHAR (50),
+primary key (id)
+);
+
+create table cool_name (
+id integer (200) auto_increment not null,
+last_name varchar (50),
+first_name varchar (50),
+primary key (id)
+);
 
 INSERT INTO adjectives ( adjective ) VALUES ("Bumfuzzled");
 INSERT INTO adjectives ( adjective ) VALUES ("Catawampus");

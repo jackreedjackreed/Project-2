@@ -12,8 +12,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: process.env.SECRETPASSWORD,
-  database: '', //Enter database here
+  password:"2busika22",
+  database: 'codeWorms_db', //Enter database here
 });
 };
 // Make connection.
