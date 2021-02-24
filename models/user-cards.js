@@ -25,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         return cards;
     };
 
+    // Test to see if deck prints out in consule
+    var myDeck = new deck();
+    console.log(myDeck);
+
     window.onload = function() {
 
         for(var i=0; i < myDeck.length; i++){
