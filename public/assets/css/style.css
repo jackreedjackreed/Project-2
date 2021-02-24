@@ -27,3 +27,27 @@ h1 {
 .directory {
     border-radius: 8px;
 }
+
+.directory-item {
+    height: 300px;
+    width: 300px;
+    border-radius: 8px;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.directory-item p {
+    margin-top: 120px;
+}
+
+#reviews {
+
+}
+
+#users {
+
+}
+
+#clubs {
+
+}
