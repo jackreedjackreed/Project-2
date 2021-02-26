@@ -2,13 +2,13 @@ const db = require('../models');
 
 module.exports = (app) => {
   //Function for creating users:
-  function creatingUsers(firstName, lastName, favoriteBook) {
-    return users.create({
-      firstName: firstName,
-      lastName: lastName,
-      favoriteBook: favoriteBook,
-    });
-  }
+  // function creatingUsers(firstName, lastName, favoriteBook) {
+  //   return users.create({
+  //     firstName: firstName,
+  //     lastName: lastName,
+  //     favoriteBook: favoriteBook,
+  //   });
+  // }
 
 //Inside of users table:
 users.sync({ force: true }).then(function () {
