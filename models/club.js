@@ -1,16 +1,21 @@
+const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
+
+
+//Table for clubs
 module.exports = (sequelize, DataTypes) => {
-    const Author = sequelize.define('Author', {
-      // Giving the Author model a name of type STRING
-      name: DataTypes.STRING,
-    });
-  
-    Author.associate = (models) => {
-      // Associating Author with Posts
-      // When an Author is deleted, also delete any associated Posts
-      Author.hasMany(models.Post, {
-        onDelete: 'cascade',
-      });
-    };
-  
-    return Author;
-  };
+  var Clubs = sequelize.define(
+    "clubs",
+    {
+      clubName: {
+        type: DataTypes.STRING,
+      },
+      clubPassword: {
+        type: DataTypes.STRING,
+      },
+    },
+    { freezeClubs: true ,
+    timestamps: false}
+  );
+
+  return Clubs;
+};
