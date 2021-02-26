@@ -16,3 +16,4 @@ id INT AUTO_INCREMENT NOT NULL,
 club_name VARCHAR(200) NOT NULL,
 club_password VARCHAR(50)
 );
+

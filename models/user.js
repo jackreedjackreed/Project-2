@@ -2,29 +2,37 @@ const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes
 
 
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define('Post', {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1],
+  //Table for users
+  var Users = sequelize.define(
+    "users",
+    {
+      firstName: {
+        type: DataTypes.STRING,
       },
-    },
-    body: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1],
-    },
-  });
-
-  Post.associate = (models) => {
-    Post.belongsTo(models.users, {
-      foreignKey: {
-        allowNull: false,
+      lastName: {
+        type: DataTypes.STRING,
       },
+      favoriteBook: {
+        type: DataTypes.STRING,
+      },
+      nameOfAuthor: {
+        type: DataTypes.STRING,
+      },
+      club: {
+        type: DataTypes.INTEGER
+        //FIND WHERE ID =....
+      }
+    },
+    {
+      freezeUsers: true,
+      timestamps: false
+    }
+  );
+  Users.associate = (models) => {
+    Users.hasMany(models.Post, {
+      onDelete: "cascade",
     });
-  // console.log({models})
   };
 
-  return Post;
+  return Users;
 };

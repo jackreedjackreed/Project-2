@@ -9,16 +9,16 @@
   },
   "test": {
     "username": "root",
-    "password": "Varsity.53",
+    "password": "",
     "database": "database_test",
     "host": "127.0.0.1",
     "port": 8080,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "Varsity.53",
-    "database": "database_production",
+    "username": "zhk0pi44kc778lno",
+    "password": "gbdfah8p5ra1j3ml",
+    "database": "junlcid39ul9p8dy",
     "host": "127.0.0.1",
     "port": 8080,
     "dialect": "mysql"
