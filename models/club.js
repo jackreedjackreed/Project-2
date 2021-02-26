@@ -1,3 +1,6 @@
+const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
+
+
 //Table for clubs
 module.exports = (sequelize, DataTypes) => {
   var Clubs = sequelize.define(
