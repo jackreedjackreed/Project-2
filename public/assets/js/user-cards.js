@@ -1,5 +1,7 @@
 // function card(club, user_name, favorite_book, suit){
 
+const { create } = require("yallist");
+
 // 	    this.club = club;
 // 	    this.name = user_name;
 //         this.favorite_book = favorite_book;
@@ -106,12 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
     tr.appendChild(lengthTD);
 
     // "go to posts"
+    const postsLink = document.createElement('td');
+    postsLink.innerHTML = `<td>< a href='/post?user_id=${userData.id}'> Go to Posts </a></td>`;
+    tr.appendChild(postsLink);
 
+    // create post
+    const createLink = document.createElement('td');
+    createLink.innerHTML = `<td><a href='/post?user_id=${userData.id}'> Create a Post! </a></td>`;
+    tr.appendChild(createLink);
 
+    // Return the table row
+    return tr;
+    };
 
-
-    
-    
-
-
-};
+    // get the list of users
+    getUsers();
+});
