@@ -16,9 +16,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "kpvu3ab6x5xfctlh",
-    "password": "z62dlq54e98trshr",
-    "database": "vss2y865aqb0rsv4",
+    "username": "zhk0pi44kc778lno",
+    "password": "gbdfah8p5ra1j3ml",
+    "database": "junlcid39ul9p8dy",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
