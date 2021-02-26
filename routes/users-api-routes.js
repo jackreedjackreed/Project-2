@@ -1,23 +1,6 @@
 const db = require('../models');
 
 module.exports = (app) => {
-  //Function for creating users:
-  // function creatingUsers(firstName, lastName, favoriteBook) {
-  //   return users.create({
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     favoriteBook: favoriteBook,
-  //   });
-  // }
-
-//Inside of users table:
-users.sync({ force: true }).then(function () {
-  creatingUsers("Jim", "Carrey", "The Mask");
-  creatingUsers("Meryl", "Streep", "The Devil Wears Prada");
-  creatingUsers("Sponge", "Bob", "How to Make The Perfect Krabby Patty");
-  creatingUsers("Jack", "Nicholson", "How to Get Away with Murder");
-});
-
 app.get('/api/users', (req, res) => {
     db.users.findAll({
       include: [db.Post],
@@ -45,3 +28,20 @@ app.get('/api/users', (req, res) => {
     }).then((dbusers) => res.json(dbusers));
   });
 }
+
+//Function for creating users:
+function creatingUsers(firstName, lastName, favoriteBook) {
+  return users.create({
+    firstName: firstName,
+    lastName: lastName,
+    favoriteBook: favoriteBook,
+  });
+}
+
+//Inside of users table:
+users.sync({ force: true }).then(function () {
+creatingUsers("Jim", "Carrey", "The Mask");
+creatingUsers("Meryl", "Streep", "The Devil Wears Prada");
+creatingUsers("Sponge", "Bob", "How to Make The Perfect Krabby Patty");
+creatingUsers("Jack", "Nicholson", "How to Get Away with Murder");
+});
