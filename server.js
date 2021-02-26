@@ -4,9 +4,10 @@ const htmlRouter = require('./routes/html-routes.js');
 const authorRouter = require('./routes/author-api-routes.js');
 const apiRouter = require('./routes/post-api-routes.js');
 
+
 // Sets up the Express App
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -22,6 +23,7 @@ app.use(express.static('public'));
 htmlRouter(app);
 authorRouter(app);
 apiRouter(app);
+
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(() => {
