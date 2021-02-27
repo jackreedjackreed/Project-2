@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports = (app) => {
 app.get('/api/users', (req, res) => {
     db.users.findAll({
-      include: [db.Post],
+      include: [db.User],
     }).then((dbusers) => res.json(dbusers));
   });
 
@@ -12,7 +12,7 @@ app.get('/api/users', (req, res) => {
       where: {
         id: req.params.id,
       },
-      include: [db.Post],
+      include: [db.User],
     }).then((dbusers) => res.json(dbusers));
   });
 
@@ -30,11 +30,12 @@ app.get('/api/users', (req, res) => {
 }
 
 //Function for creating users:
-function creatingUsers(firstName, lastName, favoriteBook) {
+function creatingUsers(firstName, lastName, favoriteBook, location) {
   return users.create({
     firstName: firstName,
     lastName: lastName,
     favoriteBook: favoriteBook,
+    location: location
   });
 }
 
