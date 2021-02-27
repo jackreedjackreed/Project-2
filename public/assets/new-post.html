@@ -52,20 +52,31 @@
     </main>
 
     <!-- div container for everything -->
-    <div class="bg-gradient-to-b from-green-600 to-green-700 p-1 w-full mx-auto flex shadow-inner text-center justify-center">
+    <div class=" p-1 w-full mx-auto flex shadow-inner text-left justify-center form-container">
       <!-- div container for username / user card -->
-      <div class="bg-yellow-800 w-full p-1 flex mx-auto my-auto text-3xl text-white">
+      <div class="bg-yellow-800  w-full p-1 flex mx-auto my-auto text-3xl text-white">
         <br><br><br>
-            <div class="bg-gradient-to-b from-green-600 to-green-700 w-full p-8 form font-extrabold">
+            <div class="form-container w-full pl-16 p-8 form font-extrabold">
                 <form class=" p-8">
-                    <label class="p-2" for="name">Name:</label><br>
+                    <label class="p-2 text-gray-800" for="name">Name:</label><br>
                     <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="name" name="name"><br><br>
-                    <label class="p-2" for="caption">Profile Caption:</label><br>
+                    <label class="p-2 text-gray-800" for="caption">Profile Caption:</label><br>
                     <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="caption" name="caption"><br><br>
-                    <label class="p-2" for="favoriteBook">Favorite Book:</label><br>
+                    <label class="p-2 text-gray-800" for="favoriteBook">Favorite Book:</label><br>
                     <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="favoriteBook" name="favoriteBook"><br><br>
-                    <label class="p-2"for="clubName">Club Name:</label><br>
-                    <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="clubName" name="clubName"><br><br>
+                    <label class="p-2 text-gray-800"for="clubName">Club Name:</label><br>
+                        <select class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" id="club" name="cars">
+                        <option value="forest">Forest</option>
+                        <option value="beach">Beach</option>
+                        <option value="mountain">Mountain</option>
+                        <option value="river">River</option>
+                        </select>
+                        <br><br>
+                    <label class="p-2 text-gray-800 text-left" for="postTitle">Post Title:</label><br>
+                    <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="favoriteBook" name="favoriteBook"><br><br>
+                    <label class="p-2 text-gray-800 text-left" for="postBody">Post Body:</label><br>
+                    <textarea class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2 w-16 text-left" name="message" style="width:500; height:300;">
+                        </textarea><br>
                   </form>
                     <div class="mb-1 mx-3xl font-extrabold text-3xl text-yellow-100 text-center">
                         <div class="inline-block bg-gradient-to-b from-green-600 to-green-700 mx-10 px-10 directory shadow-2xl">

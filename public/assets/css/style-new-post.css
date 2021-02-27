@@ -14,6 +14,10 @@ main {
     border-color: black;
 }
 
+.form-container {
+    background-color: rgb(251, 233, 209);
+}
+
 .jumbo {
     background-color: black;
 }
