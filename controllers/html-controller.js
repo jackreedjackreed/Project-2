@@ -3,6 +3,8 @@ const path = require('path');
 
 // Routes
 module.exports = (app) => {
+  // Each of the below routes just handles the HTML page that the user gets sent to.
+
   // index route loads view.html
   app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/blog.html'))
@@ -18,8 +20,8 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/blog.html'))
   );
 
-  // authors route loads author-manager.html
-  app.get('/authors', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/author-manager.html'))
+  // users route loads user-manager.html
+  app.get('/users', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/user-manager.html'))
   );
 };

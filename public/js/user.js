@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameInput = document.getElementById('user-name');
   const userList = document.querySelector('tbody');
 
-  // Create an user
+  // Create a user
   const insertUser = (userData) => {
     fetch('/api/users', {
       method: 'POST',
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     if (!nameInput.value.trim()) {
-      alert('Please provide an user name');
+      alert('Please provide a user name');
       return;
     }
 
@@ -77,6 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const createLink = document.createElement('td');
     createLink.innerHTML = `<td><a href='/cms?user_id=${userData.id}'>Create a Post</a></td>`;
     tr.appendChild(createLink);
+
+    // "update a book" link
+    const updateLink = document.createElement('td');
+    updateLink.innerHTML = `<td><a href='/book?user_id=${userData.id}'>Update Book</a></td>`;
+    tr.appendChild(updateLink);
 
     // "Delete user" link
     const deleteLink = document.createElement('td');

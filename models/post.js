@@ -15,12 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Post.associate = (models) => {
-    Post.belongsTo(models.users, {
+    Post.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
       },
     });
-  // console.log({models})
   };
 
   return Post;

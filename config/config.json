@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Sql444My.",
-    "database": "codeWorms_db",
+    "database": "blogger",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
@@ -16,9 +16,9 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "zhk0pi44kc778lno",
-    "password": "gbdfah8p5ra1j3ml",
-    "database": "junlcid39ul9p8dy",
+    "username": "root",
+    "password": "",
+    "database": "database_production",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
