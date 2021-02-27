@@ -2,67 +2,67 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-  const nameInput = document.getElementById('author-name');
-  const authorList = document.querySelector('tbody');
+  const nameInput = document.getElementById('user-name');
+  const userList = document.querySelector('tbody');
 
-  // Create an author
-  const insertAuthor = (authorData) => {
-    fetch('/api/authors', {
+  // Create an user
+  const insertUser = (userData) => {
+    fetch('/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(authorData),
+      body: JSON.stringify(userData),
     })
-      .then(getAuthors)
+      .then(getUsers)
       .catch((err) => console.error(err));
   };
 
-  // Handle when the author form is submitted
-  const handleAuthorFormSubmit = (e) => {
+  // Handle when the user form is submitted
+  const handleUserFormSubmit = (e) => {
     e.preventDefault();
 
     if (!nameInput.value.trim()) {
-      alert('Please provide an author name');
+      alert('Please provide an user name');
       return;
     }
 
-    insertAuthor({
+    insertUser({
       name: nameInput.value.trim(),
     });
   };
 
   document
-    .getElementById('author-form')
-    .addEventListener('submit', handleAuthorFormSubmit);
+    .getElementById('user-form')
+    .addEventListener('submit', handleUserFormSubmit);
 
-  // Event handler for the delete author button
+  // Event handler for the delete user button
   const handleDeleteButtonPress = (e) => {
     const { id } = e.target.parentElement.parentElement;
-    fetch(`/api/authors/${id}`, {
+    fetch(`/api/users/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(getAuthors);
+    }).then(getUsers);
   };
 
-  // Create list row for authors
-  const createAuthorRow = (authorData) => {
+  // Create list row for users
+  const createUserRow = (userData) => {
     const tr = document.createElement('tr');
-    tr.setAttribute('data-author', JSON.stringify(authorData));
+    tr.setAttribute('data-user', JSON.stringify(userData));
 
-    // Set each author's ID on the element itself
-    tr.id = authorData.id;
+    // Set each user's ID on the element itself
+    tr.id = userData.id;
 
     const td = document.createElement('td');
-    td.textContent = authorData.name;
+    td.textContent = userData.name;
     tr.appendChild(td);
 
     // Element to show how many posts
     const lengthTd = document.createElement('td');
-    if (authorData.Posts) {
-      lengthTd.textContent = authorData.Posts.length;
+    if (userData.Posts) {
+      lengthTd.textContent = userData.Posts.length;
     } else {
       lengthTd.textContent = '0';
     }
@@ -70,17 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // "Go to posts" link
     const postsLink = document.createElement('td');
-    postsLink.innerHTML = `<td><a href='/blog?author_id=${authorData.id}'>Go to Posts</a></td>`;
+    postsLink.innerHTML = `<td><a href='/blog?user_id=${userData.id}'>Go to Posts</a></td>`;
     tr.appendChild(postsLink);
 
     // "Create a post" link
     const createLink = document.createElement('td');
-    createLink.innerHTML = `<td><a href='/cms?author_id=${authorData.id}'>Create a Post</a></td>`;
+    createLink.innerHTML = `<td><a href='/cms?user_id=${userData.id}'>Create a Post</a></td>`;
     tr.appendChild(createLink);
 
-    // "Delete author" link
+    // "Delete user" link
     const deleteLink = document.createElement('td');
-    deleteLink.innerHTML = `<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Author</a></td>`;
+    deleteLink.innerHTML = `<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>`;
     deleteLink.addEventListener('click', handleDeleteButtonPress);
     tr.appendChild(deleteLink);
 
@@ -88,33 +88,33 @@ document.addEventListener('DOMContentLoaded', () => {
     return tr;
   };
 
-  // Helper function to render content when there are no authors
+  // Helper function to render content when there are no users
   const renderEmpty = () => {
     const alertDiv = document.createElement('div');
     alertDiv.classList.add('alert', 'alert-danger');
-    alertDiv.textContent = 'Must have at least one author to post';
+    alertDiv.textContent = 'Must have at least one user to post';
     alertDiv.id = 'removeMe';
     alertDiv.style.marginRight = '5px';
     return alertDiv;
   };
 
-  const renderAuthorList = (rows) => {
-    authorList.innerHTML = '';
+  const renderUserList = (rows) => {
+    userList.innerHTML = '';
 
     if (rows.length) {
       if (document.getElementById('removeMe')) {
         document.getElementById('removeMe').remove();
       }
-      rows.forEach((row) => authorList.append(row));
+      rows.forEach((row) => userList.append(row));
     } else {
-      document.querySelector('.author-container').appendChild(renderEmpty());
+      document.querySelector('.user-container').appendChild(renderEmpty());
     }
   };
 
-  // Grab all the authors
-  const getAuthors = () => {
-    console.log('Get authors is getting called');
-    fetch('/api/authors', {
+  // Grab all the users
+  const getUsers = () => {
+    console.log('Get users is getting called');
+    fetch('/api/users', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -122,17 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log('Success in getting authors:', authors);
+        // console.log('Success in getting users:', users);
         const rowsToAdd = [];
         for (let i = 0; i < data.length; i++) {
-          rowsToAdd.push(createAuthorRow(data[i]));
+          rowsToAdd.push(createUserRow(data[i]));
         }
-        renderAuthorList(rowsToAdd);
+        renderUserList(rowsToAdd);
         nameInput.value = '';
       })
       .catch((error) => console.error('Error:', error));
   };
 
-  // Get the list of authors
-  getAuthors();
+  // Get the list of users
+  getUsers();
 });

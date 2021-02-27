@@ -1,7 +1,7 @@
 const express = require('express');
 
 const htmlRouter = require('./routes/html-routes.js');
-const authorRouter = require('./routes/author-api-routes.js');
+const userRouter = require('./routes/user-api-routes.js');
 const apiRouter = require('./routes/post-api-routes.js');
 
 
@@ -21,7 +21,7 @@ app.use(express.static('public'));
 
 // Invoke routes
 htmlRouter(app);
-authorRouter(app);
+userRouter(app);
 apiRouter(app);
 
 
