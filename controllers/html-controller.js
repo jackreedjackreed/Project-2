@@ -23,8 +23,8 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/assets/posts.html'))
   );
 
-  app.get('/user', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/assets/user.html'))
+  app.get('/users', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/users.html'))
   );
 
   app.get('/single-user', (req, res) =>
