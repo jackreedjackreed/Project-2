@@ -2,9 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-  const nameInput = document.getElementById('user-name');
-  const userList = document.querySelector('tbody');
-
   // Create a user
   const insertUser = (userData) => {
     fetch('/api/users', {
@@ -32,22 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  document
-    .getElementById('user-form')
-    .addEventListener('submit', handleUserFormSubmit);
-
-  // Event handler for the delete user button
-  const handleDeleteButtonPress = (e) => {
-    const { id } = e.target.parentElement.parentElement;
-    fetch(`/api/users/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(getUsers);
-  };
-
-  // Create list row for users
+    // Create list row for users
   const createUserRow = (userData) => {
     const tr = document.createElement('tr');
     tr.setAttribute('data-user', JSON.stringify(userData));
@@ -59,37 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     td.textContent = userData.name;
     tr.appendChild(td);
 
-    // Element to show how many posts
-    const lengthTd = document.createElement('td');
-    if (userData.Posts) {
-      lengthTd.textContent = userData.Posts.length;
-    } else {
-      lengthTd.textContent = '0';
-    }
-    tr.appendChild(lengthTd);
-
-    // "Go to posts" link
-    const postsLink = document.createElement('td');
-    postsLink.innerHTML = `<td><a href='/blog?user_id=${userData.id}'>Go to Posts</a></td>`;
-    tr.appendChild(postsLink);
-
-    // "Create a post" link
-    const createLink = document.createElement('td');
-    createLink.innerHTML = `<td><a href='/cms?user_id=${userData.id}'>Create a Post</a></td>`;
-    tr.appendChild(createLink);
-
-    // "update a book" link
-    const updateLink = document.createElement('td');
-    updateLink.innerHTML = `<td><a href='/book?user_id=${userData.id}'>Update Book</a></td>`;
-    tr.appendChild(updateLink);
-
-    // "Delete user" link
-    const deleteLink = document.createElement('td');
-    deleteLink.innerHTML = `<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>`;
-    deleteLink.addEventListener('click', handleDeleteButtonPress);
-    tr.appendChild(deleteLink);
-
-    // Return the table row
     return tr;
   };
 
