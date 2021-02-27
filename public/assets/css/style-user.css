@@ -13,7 +13,7 @@ nav {
   }
   body {
     background-color: rgb(251, 233, 209);
-    /* background-image: linear-gradient(to right, rgb(250, 237, 220), rgb(170, 126, 68)); */
+    /* background-image: linear-gradient url(); */
     opacity: .9;
     box-shadow: 10px;
   }
