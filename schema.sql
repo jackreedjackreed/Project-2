@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS codeWorms_db;
-
-CREATE DATABASE codeWorms_db;

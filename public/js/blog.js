@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Variable to hold our posts
   let posts;
 
-  const getPosts = (author) => {
-    authorId = author || '';
-    if (authorId) {
-      authorId = `/?author_id=${authorId}`;
+  const getPosts = (user) => {
+    userId = user || '';
+    if (userId) {
+      userId = `/?user_id=${userId}`;
     }
 
-    fetch(`/api/posts${authorId}`, {
+    fetch(`/api/posts${userId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         posts = data;
         console.log('Success in getting posts:', data);
         if (!data || !data.length) {
-          displayEmpty(author);
+          displayEmpty(user);
         } else {
           initializeRows();
         }
@@ -32,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((error) => console.error('Error:', error));
   };
 
-  // Get a blog post from a specific author
+  // Get a blog post from a specific user
   const url = window.location.search;
-  let authorId;
-  if (url.indexOf('?author_id=') !== -1) {
-    authorId = url.split('=')[1];
-    getPosts(authorId);
+  let userId;
+  if (url.indexOf('?user_id=') !== -1) {
+    userId = url.split('=')[1];
+    getPosts(userId);
   } else {
     getPosts();
   }
@@ -86,12 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const newPostTitle = document.createElement('h2');
     const newPostDate = document.createElement('small');
-    const newPostAuthor = document.createElement('h5');
+    const newPostUser = document.createElement('h5');
 
-    newPostAuthor.textContent = `Written by: ${post.Author.name}`;
-    newPostAuthor.style.float = 'right';
-    newPostAuthor.style.color = 'blue';
-    newPostAuthor.style.marginTop = '-10px';
+    newPostUser.textContent = `Written by: ${post.User.name}`;
+    newPostUser.style.float = 'right';
+    newPostUser.style.color = 'blue';
+    newPostUser.style.marginTop = '-10px';
 
     const newPostCardBody = document.createElement('div');
     newPostCardBody.classList.add('card-body');
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editButton);
     newPostCardHeading.append(newPostTitle);
-    newPostCardHeading.append(newPostAuthor);
+    newPostCardHeading.append(newPostUser);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = window.location.search;
     let partial = '';
     if (id) {
-      partial = ` for Author #${id}`;
+      partial = ` for User #${id}`;
     }
 
     blogContainer.innerHTML = '';
