@@ -18,12 +18,15 @@ module.exports = (app) => {
   res.sendFile(path.join(__dirname, '../public/assets/home.html'))
 );
 
-  // cms route loads cms.html
+  // posts route loads posts.html
   app.get('/posts', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/posts.html'))
   );
 
-  // blog route loads blog.html
+  app.get('/user', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/user.html'))
+  );
+
   app.get('/single-user', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/single-user.html'))
   );
