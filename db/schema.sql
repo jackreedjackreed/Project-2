@@ -1,18 +1,16 @@
+-- Drops the codeWorms_db if it exists currently --
 DROP DATABASE IF EXISTS codeWorms_db;
+-- Creates the "codeWorms_db" database --
 CREATE DATABASE codeWorms_db;
-USE codeWorms_db;
 
-CREATE TABLE books(
-id INT AUTO_INCREMENT NOT NULL, 
-title VARCHAR(200) NOT NULL,
-author VARCHAR(200) NOT NULL,
-genre VARCHAR(50) NULL,
-PRIMARY KEY(id)	
--- FOREIGN KEY 
+create TABLE adjectives (
+ id INTEGER(200) AUTO_INCREMENT NOT NULL,
+adjective VARCHAR (50),
+primary key (id)
 );
 
-CREATE TABLE clubs (
-id INT AUTO_INCREMENT NOT NULL, 
-club_name VARCHAR(200) NOT NULL,
-club_password VARCHAR(50)
+create TABLE nouns (
+ id INTEGER(200) AUTO_INCREMENT NOT NULL,
+noun VARCHAR (50),
+primary key (id)
 );
