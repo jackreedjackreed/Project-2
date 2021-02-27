@@ -7,21 +7,22 @@ module.exports = (app) => {
 
   // index route loads view.html
   app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/blog.html'))
+    res.sendFile(path.join(__dirname, '../public/assets/home.html'))
   );
 
-  // cms route loads cms.html
-  app.get('/cms', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/cms.html'))
+  app.get('/home', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/home.html'))
   );
 
-  // blog route loads blog.html
-  app.get('/blog', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/blog.html'))
+  app.get('/clubs', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/clubs.html'))
   );
 
-  // authors route loads author-manager.html
-  app.get('/authors', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/author-manager.html'))
+  app.get('/posts', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/assets/posts.html'))
   );
-};
+
+  app.get('/users', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/users.html'))
+  );
+}
