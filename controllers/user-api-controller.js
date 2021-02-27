@@ -2,12 +2,18 @@ const db = require('../models');
 
 module.exports = (app) => {
   app.get('/api/users', (req, res) => {
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Post
     db.User.findAll({
       include: [db.Post],
     }).then((dbUser) => res.json(dbUser));
   });
 
   app.get('/api/users/:id', (req, res) => {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Post
     db.User.findOne({
       where: {
         id: req.params.id,
@@ -27,22 +33,4 @@ module.exports = (app) => {
       },
     }).then((dbUser) => res.json(dbUser));
   });
-
-
-//Function for creating users:
-function creatingUsers(firstName, lastName, favoriteBook) {
-    return Books.create({
-      firstName: firstName,
-      lastName: lastName,
-      favoriteBook: favoriteBook,
-    });
-  }
-
-//Inside of users table:
-users.sync({ force: true }).then(function () {
-  creatingUsers("Jim", "Carrey", "The Mask");
-  creatingUsers("Meryl", "Streep", "The Devil Wears Prada");
-  creatingUsers("Sponge", "Bob", "How to Make The Perfect Krabby Patty");
-  creatingUsers("Jack", "Nicholson", "How to Get Away with Murder");
-});
 };

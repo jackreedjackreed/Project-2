@@ -7,22 +7,22 @@ const show = (el) => {
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-  // Get references to the body, title, form and author
+  // Get references to the body, title, form and user
   const bodyInput = document.getElementById('body');
   const titleInput = document.getElementById('title');
   const cmsForm = document.getElementById('cms');
-  const authorSelect = document.getElementById('author');
+  const userSelect = document.getElementById('user');
 
   // Get query parameter
   const url = window.location.search;
   let postId;
-  let authorId;
+  let userId;
   let updating = false;
 
   // Get post data for editing/adding
   const getPostData = (id, type) => {
     const queryUrl =
-      type === 'post' ? `/api/posts/${id}` : `/api/authors/${id}`;
+      type === 'post' ? `/api/posts/${id}` : `/api/users/${id}`;
 
     fetch(queryUrl, {
       method: 'GET',
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Populate the form for editing
           titleInput.value = data.title;
           bodyInput.value = data.body;
-          authorId = data.AuthorId || data.id;
+          userId = data.UserId || data.id;
 
           // We are updating
           updating = true;
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     postId = url.split('=')[1];
     getPostData(postId, 'post');
   }
-  // Otherwise if we have an author_id in our url, preset the author select box to be our Author
-  else if (url.indexOf('?author_id=') !== -1) {
-    authorId = url.split('=')[1];
+  // Otherwise if we have an user_id in our url, preset the user select box to be our User
+  else if (url.indexOf('?user_id=') !== -1) {
+    userId = url.split('=')[1];
   }
 
   // Event handler for when the post for is submitted
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (
       !titleInput.value.trim() ||
       !bodyInput.value.trim() ||
-      !authorSelect.value
+      !userSelect.value
     ) {
       return;
     }
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newPost = {
       title: titleInput.value.trim(),
       body: bodyInput.value.trim(),
-      AuthorId: authorSelect.value,
+      UserId: userSelect.value,
     };
 
     // Update a post if flag is true, otherwise submit a new one
@@ -104,11 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((err) => console.error(err));
   };
 
-  // Render a list of authors or redirect if no authors
-  const renderAuthorList = (data) => {
-    console.log('renderAuthorList -> data', data);
+  // Render a list of users or redirect if no users
+  const renderUserList = (data) => {
+    console.log('renderUserList -> data', data);
     if (!data.length) {
-      window.location.href = '/authors';
+      window.location.href = '/users';
     }
     if (document.querySelector('.hidden')) {
       show(document.querySelector('.hidden'));
@@ -116,39 +116,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const rowsToAdd = [];
 
-    data.forEach((author) => rowsToAdd.push(createAuthorRow(author)));
+    data.forEach((user) => rowsToAdd.push(createUserRow(user)));
 
-    authorSelect.innerHTML = '';
-    console.log('renderAuthorList -> rowsToAdd', rowsToAdd);
-    console.log('authorSelect', authorSelect);
+    userSelect.innerHTML = '';
+    console.log('renderUserList -> rowsToAdd', rowsToAdd);
+    console.log('userSelect', userSelect);
 
-    rowsToAdd.forEach((row) => authorSelect.append(row));
-    authorSelect.value = authorId;
+    rowsToAdd.forEach((row) => userSelect.append(row));
+    userSelect.value = userId;
   };
 
-  // Build author dropdown
-  const createAuthorRow = ({ id, name }) => {
+  // Build user dropdown
+  const createUserRow = ({ id, name }) => {
     const listOption = document.createElement('option');
     listOption.value = id;
     listOption.textContent = name;
     return listOption;
   };
 
-  // A function to get Authors and then call the render function
-  const getAuthors = () => {
-    fetch('api/authors', {
+  // A function to get Users and then call the render function
+  const getUsers = () => {
+    fetch('api/users', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
-      .then((data) => renderAuthorList(data))
+      .then((data) => renderUserList(data))
       .catch((err) => console.error(err));
   };
 
-  // Get the authors, and their posts
-  getAuthors();
+  // Get the users, and their posts
+  getUsers();
 
   // Update a post then redirect to blog
   const updatePost = (post) => {
