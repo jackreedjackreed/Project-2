@@ -15,21 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((err) => console.error(err));
   };
 
-  // Handle when the user form is submitted
-  const handleUserFormSubmit = (e) => {
-    e.preventDefault();
-
-    if (!nameInput.value.trim()) {
-      alert('Please provide a user name');
-      return;
-    }
-
-    insertUser({
-      name: nameInput.value.trim(),
-    });
-  };
-
-    // Create list row for users
+  // Create list row for users
   const createUserRow = (userData) => {
     const tr = document.createElement('tr');
     tr.setAttribute('data-user', JSON.stringify(userData));
@@ -44,16 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return tr;
   };
 
-  // Helper function to render content when there are no users
-  const renderEmpty = () => {
-    const alertDiv = document.createElement('div');
-    alertDiv.classList.add('alert', 'alert-danger');
-    alertDiv.textContent = 'Must have at least one user to post';
-    alertDiv.id = 'removeMe';
-    alertDiv.style.marginRight = '5px';
-    return alertDiv;
-  };
-
+  
   const renderUserList = (rows) => {
     userList.innerHTML = '';
 
