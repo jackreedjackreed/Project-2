@@ -6,10 +6,6 @@ module.exports = (app) => {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
-  app.get('/blog', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/blog.html'))
-  );
-
   app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/home.html'))
   );
@@ -31,10 +27,14 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/assets/single-user.html'))
   );
 
-  // users route loads user-manager.html
   app.get('/clubs', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/clubs.html'))
   );
+
+   // loads user card
+   app.get('/user-card', (req, res) =>
+   res.sendFile(path.join(__dirname, '../views/partials/user-card.html'))
+ );
 };
 
 
