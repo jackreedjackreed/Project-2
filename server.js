@@ -19,7 +19,7 @@ app.use(express.json());
 // Static directory
 app.use(express.static('public'));
 
-// Set Handlebars.
+//Set Handlebars.
 const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

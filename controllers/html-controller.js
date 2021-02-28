@@ -27,6 +27,11 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/assets/single-user.html'))
   );
 
+  app.get('/new-post', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/new-post.html'))
+  );
+
+  // users route loads user-manager.html
   app.get('/clubs', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/clubs.html'))
   );
