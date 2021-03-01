@@ -36,4 +36,15 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   return User;
+
 };
+
+//Inside of users table:
+users.sync({ force: true }).then(function () {
+  creatingUsers("Sarah", "Dayan", "The Secret Life of Plants", "New York");
+  creatingUsers("Jeremy", "Lane", "The Mamba Mentality: How I Play", "Deleware");
+  creatingUsers("Carolyn", "David", "How America’s Political Parties Change (and How They Don’t)", "California");
+  creatingUsers("Chad", "Blake", "The Alchemist", "New York");
+  creatingUsers("Kathy", "Henderson", "The Hobbit", "Vermont");
+  creatingUsers("Artie", "James", "The Innovator’s Dilemma", "Texas");
+});
