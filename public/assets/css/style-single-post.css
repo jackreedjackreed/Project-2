@@ -30,6 +30,11 @@ main {
     
 }
 
+.post-text-background {
+    background-color: rgb(251, 233, 209);
+    
+}
+
 body {
     opacity: 0.95
 }
