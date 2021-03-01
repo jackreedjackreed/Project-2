@@ -23,7 +23,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
         },
       });
      })
-     .then((dbUser) => res.json(dbUser));
+     .then((dbUser) => res.json(dbUser))
+     .then((data) => {
+        posts = data;
+        console.log('Success in getting users:', data);
+        if (!data || !data.length) {
+          displayEmpty(user);
+        } else {
+          initializeRows();
+        }
+      })
+      .catch((error) => console.error('Error:', error));
+
+    };
+    // Create HTML rows for the blog container
+    const initializeRows = () => {
+        blogContainer.innerHTML = '';
+        const postsToAdd = [];
+
+        posts.forEach((post) => postsToAdd.push(createNewCard(post)));
+        postsToAdd.forEach((post) => blogContainer.append(post));
+    };
     
 
       // Front end call to DELETE a User
@@ -35,7 +55,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         },
         }).then(renderUser());
         };
-    };
+
 
     const createNewCard = (card) => {
         console.log('createNewCard -> card', card);
@@ -103,7 +123,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         e.target.parentElement.parentElement.dataset.post
       );
 
-        deletePost(currentUser.id);
+        deleteUser(currentUser.id);
     };
 
     // Handle when user edit button clicked
