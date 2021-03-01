@@ -18,10 +18,20 @@ module.exports = (app) => {
   res.sendFile(path.join(__dirname, '../public/assets/home.html'))
 );
 
+// cms route loads cms.html
+app.get('/cms', (req, res) =>
+res.sendFile(path.join(__dirname, '../public/cms.html'))
+);
+
   // cms route loads cms.html
   app.get('/posts', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/posts.html'))
   );
+
+   // users route loads user-manager-block.handlebars
+   app.get('/users', (req, res) =>
+   res.sendFile(path.join(__dirname, '../public/author-manager.html'))
+ );
 
   // blog route loads blog.html
   app.get('/single-user', (req, res) =>
@@ -37,5 +47,3 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/assets/clubs.html'))
   );
 };
-
-
