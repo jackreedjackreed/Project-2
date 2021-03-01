@@ -2,13 +2,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-    // Grab all the users
-    const getUsers = () => {
-      console.log('Get users is getting called');
-      fetch('/api/users', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
+  // Grab all the users
+  const getUsers = () => {
+    console.log('Get users is getting called');
+    fetch('/api/users', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
         },
       })
         .then((response) => response.json())
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
           nameInput.value = '';
         })
         .catch((error) => console.error('Error:', error));
-    };
+  };
   
-    // Get the list of users
-    getUsers();
+  // Get the list of users
+  getUsers();
 
   const userNameInput = document.getElementById('first-name, last-name');
   const favoriteBookInput = document.write(text)('favorite-book');
