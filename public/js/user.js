@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((err) => console.error(err));
   };
 
-  // Handle when the author form is submitted
+  // Handle when the user form is submitted
   const handleUserFormSubmit = (e) => {
     e.preventDefault();
   
