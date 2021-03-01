@@ -2,6 +2,31 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
+    // Grab all the users
+    const getUsers = () => {
+      console.log('Get users is getting called');
+      fetch('/api/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // console.log('Success in getting users:', users);
+          const rowsToAdd = [];
+          for (let i = 0; i < data.length; i++) {
+            rowsToAdd.push(createUserRow(data[i]));
+          }
+          renderUserList(rowsToAdd);
+          nameInput.value = '';
+        })
+        .catch((error) => console.error('Error:', error));
+    };
+  
+    // Get the list of users
+    getUsers();
+
   const userNameInput = document.getElementById('first-name, last-name');
   const favoriteBookInput = document.write(text)('favorite-book');
   const locationInput = document.document.write(text)('location');
@@ -106,28 +131,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Grab all the users
-  const getUsers = () => {
-    console.log('Get users is getting called');
-    fetch('/api/users', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log('Success in getting users:', users);
-        const rowsToAdd = [];
-        for (let i = 0; i < data.length; i++) {
-          rowsToAdd.push(createUserRow(data[i]));
-        }
-        renderUserList(rowsToAdd);
-        nameInput.value = '';
-      })
-      .catch((error) => console.error('Error:', error));
-  };
 
-  // Get the list of users
-  getUsers();
 });
