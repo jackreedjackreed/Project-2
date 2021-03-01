@@ -35,11 +35,7 @@ module.exports = (app) => {
   app.get('/clubs', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/clubs.html'))
   );
-
-   // loads user card
-   app.get('/user-card', (req, res) =>
-   res.sendFile(path.join(__dirname, '../views/partials/user-manager-block.handlebars'))
- );
+  
 };
 
 
