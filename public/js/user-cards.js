@@ -1,6 +1,6 @@
 const { response } = require("express");
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     if (e) {
         console.log('DOM loaded! 🚀');
     }
