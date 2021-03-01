@@ -38,7 +38,7 @@ module.exports = (app) => {
 
    // loads user card
    app.get('/user-card', (req, res) =>
-   res.sendFile(path.join(__dirname, '../views/partials/user-card.html'))
+   res.sendFile(path.join(__dirname, '../views/partials/user-manager-block.handlebars'))
  );
 };
 
