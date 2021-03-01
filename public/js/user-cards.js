@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return newUserCard;
     };
     
-    // Handle when we click the delete post button
+    // Handle when user delete button clicked
     const handleUserDelete = (e) => {
       const currentUser = JSON.parse(
         e.target.parentElement.parentElement.dataset.post
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         deletePost(currentUser.id);
     };
 
-    // Handle when we click the edit post button
+    // Handle when user edit button clicked
     const handleUserEdit = (e) => {
       const currentUser = JSON.parse(
         e.target.parentElement.parentElement.dataset.post
