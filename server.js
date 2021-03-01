@@ -7,7 +7,7 @@ const apiRouter = require('./controllers/post-api-controller.js');
 
 // Sets up the Express App
 const app = express();
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -19,11 +19,11 @@ app.use(express.json());
 // Static directory
 app.use(express.static('public'));
 
-// Set Handlebars.
-// const exphbs = require("express-handlebars");
+//Set Handlebars.
+const exphbs = require("express-handlebars");
 
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Invoke routes
 htmlRouter(app);

@@ -10,9 +10,6 @@ module.exports = (app) => {
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.User
     db.Post.findAll({
       where: query,
       include: [db.User],
@@ -21,9 +18,6 @@ module.exports = (app) => {
 
   // Get route for retrieving a single post
   app.get('/api/posts/:id', (req, res) => {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.User
     db.Post.findOne({
       where: {
         id: req.params.id,
