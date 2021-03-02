@@ -1,6 +1,29 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    caption: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1],
+    },
+    favoriteBook: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    clubName: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1],
+    },
   });
 
   User.associate = (models) => {
