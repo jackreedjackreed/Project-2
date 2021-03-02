@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../assets/css/style-users.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script> src="../../tailwind.config.js"</script>  
+  </head>
+
+  <body>
+      <!-- NAV BAR -->
+      <nav class="bg-gradient-to-r from-green-600 to-green-700">
+          <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 shadow shadow-inner">
+            <div class="flex items-center justify-between h-16">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <i class=" bg-white fas fa-book-open"></i>
+                  <!-- <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow"> -->
+                </div>
+                <div class="hidden md:block">
+                  <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="/home" class="bg-yellow-900 text-white px-3 py-2 rounded-md text-xl font-medium">Home</a>
+                    <a href="/posts" class="text-yellow-200 hover:bg-yellow-700 hover:text-white px-3 py-2 rounded-md text-l font-medium">Posts</a>
+                    <a href="/users" class="text-yellow-200 hover:bg-yellow-700 hover:text-white px-3 py-2 rounded-md text-l font-medium">Users</a>
+                    <a href="/clubs" class="text-yellow-200 hover:bg-yellow-700 hover:text-white px-3 py-2 rounded-md text-l font-medium">Clubs</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </nav>
+      <!-- HEADER/JUMBOTRON -->
+      <main class="mt-10 w-screen mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 shadow-2xl">
+          <div class="sm:text-center lg:text-center">
+              <br><br><br><br><br><br><br><br><br>
+            <h1 class="text-4xl mt-15 tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+              <span class="block text-green-200 xl:inline">Welcome to</span>
+              <span class="block text-white xl:inline">CodeWorms.</span>
+            </h1>
+              <br><br>
+          </div>
+      </main>
+      
+      <br><br><br><br>
+  ​
+      <!-- DESCRIPTION/DIRECITONS -->
+      <div class="mt-10 w-screen mx-auto shadow-inner">
+            <div class="mt-15 text-center text-white font-bold text-4xl bg-gradient-to-r from-green-600 to-green-700">
+                <br><br><br>
+                <div class="max-w-auto text-center justify-center mx-8xl">
+                    <p>
+                      The only place on the web tailored to coders and book lovers alike.
+                    </p>
+                    <br>
+                    <p>
+                      A free forum to share and discuss favorite reads. 
+                    </p>
+                </div>
+                <br><br><br>
+            </div>
+      </div>
+     
+      <br><br><br><br><br>
+  ​
+      <!--USER CARDS-->
+  ​
+      <div class="mx-auto shadow-inner">
+          <a href="/new-user" id="new-user-link">
+          <div class="mb-10 mx-3xl font-extrabold text-3xl text-yellow-300 text-center">
+              <br>
+              <div class="inline-block bg-gradient-to-b from-green-600 to-green-700 mx-10 px-10 directory shadow-2xl">
+                  <h2 class="mx-4xl m-3">Create New Profile</h2>
+              </div>
+              <br>
+          </div>
+          </a>
+      </div>
+      <div class="m-auto shadow-inner">
+          <div class= "bg-scroll" style="background-image: url(https://images.unsplash.com/photo-1603802639773-329f672b9d04?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzM0fHxsaWJyYXJ5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60)">
+              <div class="space-x-30 mt-10xl grid grid-rows-3 grid-flow-col gap-4 flex-wrap content-around content-evenly">
+                  <figure class=" pl-100px flex bg-gray-100 w:10 rounded-xl p-8 user-card">
+                   <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="https://images.unsplash.com/photo-1609348445429-8cf379ff9bf7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzN8fGxpYnJhcnl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" width="384" height="512">
+                      <div class="pt-6 md:p-8 text-left space-y-4">
+                          <blockquote >
+                              <p class="text-xl font-semibold">
+                               My name's Sarah and I like to read.
+                              </p>
+                          </blockquote>
+                          <figcaption class="font-medium">
+                              <div class="text-cyan-600 user-name">
+                               Sarah Dayan
+                              </div>
+                              <div class="text-gray-500 location">
+                               New York
+                              </div>
+                              <div class="text-green-400 location">
+                               Mountain Club
+                              </div>
+                          </figcaption>
+                      </div>
+                  </figure>
+  ​
+                  <figure class=" pl-100px flex bg-gray-100 w:10 rounded-xl p-8 user-card">
+                      <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="https://images.unsplash.com/photo-1522211988038-6fcbb8c12c7e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjl8fGxpYnJhcnl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="" width="384" height="512">
+                         <div class="pt-6 md:p-8 text-left space-y-4">
+                             <blockquote >
+                                 <p class="text-xl font-semibold">
+                                  My name's Jeremy and I enjoy reading.
+                                 </p>
+                             </blockquote>
+                             <figcaption class="font-medium">
+                                 <div class="text-cyan-600 user-name">
+                                  Jeremy Lane
+                                 </div>
+                                 <div class="text-gray-500 location">
+                                  Deleware
+                                 </div>
+                                 <div class="text-green-400 location">
+                                  Forest Club
+                                 </div>
+                             </figcaption>
+                         </div>
+                     </figure>
+  ​
+                     <figure class=" pl-100px flex bg-gray-100 w:10 rounded-xl p-8 user-card">
+                      <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="https://images.unsplash.com/photo-1567537146932-6f80e0b71a00?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTkyfHxsaWJyYXJ5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" width="384" height="512">
+                         <div class="pt-6 md:p-8 text-left space-y-4">
+                             <blockquote >
+                                 <p class="text-xl font-semibold">
+                                  My name's Carol and I like to read as a hobby.
+                                 </p>
+                             </blockquote>
+                             <figcaption class="font-medium">
+                                 <div class="text-cyan-600 user-name">
+                                  Carolyn David
+                                 </div>
+                                 <div class="text-gray-500 location">
+                                  California
+                                 </div>
+                                 <div class="text-green-400 location">
+                                  Beach Club
+                                 </div>
+                             </figcaption>
+                         </div>
+                     </figure>
+  ​
+                     <figure class=" pl-100px flex bg-gray-100 w:10 rounded-xl p-8 user-card">
+                      <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="https://images.unsplash.com/photo-1522568443377-a04baad1a1e4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzA2fHxsaWJyYXJ5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" width="384" height="512">
+                         <div class="pt-6 md:p-8 text-left space-y-4">
+                             <blockquote >
+                                 <p class="text-xl font-semibold">
+                                  My name's Chad and I always have a book with me. Knowledge is power
+                                 </p>
+                             </blockquote>
+                             <figcaption class="font-medium">
+                                 <div class="text-cyan-600 user-name">
+                                  Chad Blake
+                                 </div>
+                                 <div class="text-gray-500 location">
+                                  New York
+                                 </div>
+                                 <div class="text-green-400 location">
+                                  River Club
+                                 </div>
+                             </figcaption>
+                         </div>
+                     </figure>
+  ​
+                     <figure class=" pl-100px flex bg-gray-100 w:10 rounded-xl p-8 user-card">
+                      <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="https://images.unsplash.com/photo-1571179628313-f0971fe323c6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTV8fGxpYnJhcnl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" width="384" height="512">
+                         <div class="pt-6 md:p-8 text-left space-y-4">
+                             <blockquote >
+                                 <p class="text-xl font-semibold">
+                                  My name's Kathy and I love a good read.
+                                 </p>
+                             </blockquote>
+                             <figcaption class="font-medium">
+                                 <div class="text-cyan-600 user-name">
+                                  Kathy Henderson
+                                 </div>
+                                 <div class="text-gray-500 location">
+                                  Vermont
+                                 </div>
+                                 <div class="text-green-400 location">
+                                  Forest Club
+                                 </div>
+                             </figcaption>
+                         </div>
+                     </figure>
+  ​
+                     <figure class=" pl-100px flex bg-gray-100 w:10 rounded-xl p-8 user-card">
+                      <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="https://images.unsplash.com/photo-1549383028-df014fa3a325?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzB8fGxpYnJhcnl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="" width="384" height="512">
+                         <div class="pt-6 md:p-8 text-left space-y-4">
+                             <blockquote >
+                                 <p class="text-xl font-semibold">
+                                  My name's Artie and reading is what I do in my down-time.
+                                 </p>
+                             </blockquote>
+                             <figcaption class="font-medium">
+                                 <div class="text-cyan-600 user-name">
+                                  Artie James
+                                 </div>
+                                 <div class="text-gray-500 location">
+                                  Texas
+                                 </div>
+                                 <div class="text-green-400 location">
+                                  Mountain Club
+                                 </div>
+                             </figcaption>
+                         </div>
+                     </figure>
+      </body>
+  <!-- Custom Script -->
+  <script src="js/user.js" type="text/javascript"></script>
+  </html>

@@ -4,11 +4,6 @@ const path = require('path');
 // Routes
 module.exports = (app) => {
   // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  app.get('/blog', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/blog.html'))
-  );
-
   app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/home.html'))
   );
@@ -35,6 +30,10 @@ module.exports = (app) => {
 
   app.get('/new-post', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/new-post.html'))
+  );
+
+  app.get('/users', (req, res) =>
+    res.sendFile(path.join(__dirname, '../public/assets/users.html'))
   );
 
   app.get('/clubs', (req, res) =>
