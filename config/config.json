@@ -1,8 +1,13 @@
 {
   "development": {
     "username": "root",
-    "password": "Burgerthirds85!",
+
+   
     "database": "blogger",
+=======
+    "password": "Sql444My.",
+    "database": "codeWorms_db",
+
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
@@ -16,10 +21,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "",
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "zhk0pi44kc778lno",
+    "password": "gbdfah8p5ra1j3ml",
+    "database": "junlcid39ul9p8dy",
+    "host": "jhdjjtqo9w5bzq2t.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   }
