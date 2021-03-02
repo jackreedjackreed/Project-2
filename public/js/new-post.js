@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded! 🚀');
   
     // Get references to the body, title, form and author
+    const postForm = document.getElementById('postForm');
     const name = document.getElementById('name');
     const caption = document.getElementById('caption');
     const favoriteBook = document.getElementById('favoriteBook');
@@ -108,11 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('jerry');
     }
     // Handle submit button press
-    submitBtn.addEventListener('click', jerry());
-
-
+    submitBtn.addEventListener('click', function (){
+        console.log("jerry logging");
+        jerry();
 
     });
+
+});
     // submitBtn.addEventListener('click', handleFormSubmit);
 
 
