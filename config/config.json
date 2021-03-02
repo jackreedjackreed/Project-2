@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-
-   
-    "database": "blogger",
-=======
-    "password": "Sql444My.",
     "database": "codeWorms_db",
-
+    "password": "Sql444My.",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"

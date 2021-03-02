@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Create a user
   const insertUser = (userData) => {
-    fetch('/api/users', {
+    fetch('/api/new-post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event handler for the delete user button
   const handleDeleteButtonPress = (e) => {
     const { id } = e.target.parentElement.parentElement;
-    fetch(`/api/users/${id}`, {
+    fetch(`/api/new-post/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Grab all the users
   const getUsers = () => {
     console.log('Get users is getting called');
-    fetch('/api/users', {
+    fetch('/api/new-post', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

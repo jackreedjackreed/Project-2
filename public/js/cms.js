@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // A function to get Users and then call the render function
   const getUsers = () => {
-    fetch('api/users', {
+    fetch('api/new-post', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

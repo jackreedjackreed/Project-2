@@ -41,5 +41,3 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/assets/clubs.html'))
   );
 };
-
-
