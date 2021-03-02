@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event handler for when the post for is submitted
   const handleFormSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log("submit btn pressed...")
+    console.log(name.value + caption.value + favoriteBook.values + clubName.value + postTitle.value + postBody.value)
 
     // Make sure the form isn't empty
     if (
@@ -36,41 +37,53 @@ document.addEventListener('DOMContentLoaded', () => {
     // Objects that will be sent to the db
 
     const newUser = {
-        name = name.value.trim(),
-        caption = caption.value.trim(),
-        favoriteBook = favoriteBook.value.trim(),
-        clubName = clubName.value(),
+        name: name.value.trim(),
+        caption: caption.value.trim(),
+        favoriteBook: favoriteBook.value.trim(),
+        clubName: clubName.value.trim(),
     }
     
     const newPost = {
-        postTitle = postTitle.value.trim(),
-        postBody = postBody.value.trim()
+        postTitle: postTitle.value.trim(),
+        postBody: postBody.value.trim()
     };
 
-    // Update a post if flag is true, otherwise submit a new one
-    if (updating) {
-      newPost.id = postId;
-      updatePost(newPost);
-    } else {
-      submitPost(newPost);
-    }
-  };
+    // // Update a post if flag is true, otherwise submit a new one
+    // if (updating) {
+    //   newPost.id = postId;
+    //   updatePost(newPost);
+    // } else {
+    
+    submitUser(newUser)
+    submitPost(newPost);
+    };
 
+    // Submits new user
+    const submitUser = (post) => {
+    fetch('/api/users', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(post),
+    })
+        .catch((err) => console.error(err));
+    };
 
-    // Submits new post then redirects
+    // Submits new post then redirects to posts
     const submitPost = (post) => {
         fetch('/api/posts', {
-          method: 'POST',
-          headers: {
+            method: 'POST',
+            headers: {
             'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(post),
+            },
+            body: JSON.stringify(post),
         })
-          .then(() => {
-            window.location.href = '/blog';
-          })
-          .catch((err) => console.error(err));
-      };
+            .then(() => {
+            window.location.href = '/posts';
+            })
+            .catch((err) => console.error(err));
+        };
 
     // Get query parameter
     const url = window.location.search;
