@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="../assets/css/style-new-post.css" rel="stylesheet">
+  <link href="../assets/css/style-single-post.css" rel="stylesheet">
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script> src="../../tailwind.config.js"</script>  
@@ -44,65 +44,74 @@
         </div>
     </nav>
 
-    <div class="bg-green-800 p-1 mx-auto flex shadow-inner text-center justify-center"></div>
+    <div class="bg-green-900 p-1 mx-auto flex shadow-inner text-center justify-center"></div>
 
     <!-- HEADER/JUMBOTRON -->
     <main class="w-screen flex justify-center mx-auto shadow-2xl jumbo">
-        <div class="text-center mt-8 mb-10 justify-center flex">
-            <br><br><br><br><br><br><br>
+        <div class="text-center mt-10 mb-10 justify-center flex">
+            <br><br><br><br><br><br><br><br><br><br><br><br>
             <!-- <img src="/images/library-2.jpeg" alt="Library"> -->
-          <h1 class="text-6xl mt-16 tracking-tight font-extrabold text-white z-1">
-            Make a new post
+          <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 z-1">
+            <figure class="flex bg-gray-100 w:10 rounded-xl p-8 justify-center user-card">
+              <img class="w-32 h-32 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto" src="images/forest-1.jpeg" alt="" width="384" height="512">
+          <div class="pt-6 md:p-8 text-left space-y-4">
+              <blockquote >
+                  <p class="text-xl font-semibold">
+                  My name's Sarah and I like to read.
+                  </p>
+              </blockquote>
+              <figcaption class="font-medium">
+                  <div class="text-cyan-600 user-name">
+                  Sarah Dayan
+                  </div>
+                  <div class="text-gray-500 location">
+                  The Alchemist
+                  </div>
+                  <div class="text-green-400 location">
+                      Club: Forest
+                  </div>
+              </figcaption>
+              </div>
+          </figure>
             <!-- <span class="block text-white xl:inline">Sarah</span> -->
           </h1>
             <br><br>
         </div>
     </main>
 
+    <div class="bg-green-900 p-1 mx-auto flex shadow-inner text-center justify-center"></div>
+
     <!-- div container for everything -->
-    <div class=" w-full mx-auto flex shadow-inner text-left justify-center form-container">
-      <!-- div container for username / user card -->
-      <div class=" pl-16 rounded w-full p-1 flex mx-auto my-auto text-3xl text-white">
+    <div class="pt-20 pb-24 w-full mx-auto flex shadow-inner text-left justify-center post-background rounded-lg">
+      <!-- div container for post -->
+      <div class="p-16 rounded post-container flex max-width-6xl mx-auto my-auto text-3xl text-white bg-green-900">
         <br><br><br>
-            <div class="form-container w-full pl-16 form font-extrabold">
+            <div class="w-full pl-16 form font-extrabold post-text-background">
                 <br>
-                <form class=" pl-8">
-                    <label class="p-2 text-gray-800" for="name">Name:</label><br>
-                    <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="name" name="name"><br><br>
-                    <label class="p-2 text-gray-800" for="caption">Profile Caption:</label><br>
-                    <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="caption" name="caption"><br><br>
-                    <label class="p-2 text-gray-800" for="favoriteBook">Favorite Book:</label><br>
-                    <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="favoriteBook" name="favoriteBook"><br><br>
-                    <label class="p-2 text-gray-800"for="clubName">Club Name:</label><br>
-                        <select class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-4" id="club" name="cars">
-                        <option value="forest">Forest</option>
-                        <option value="beach">Beach</option>
-                        <option value="mountain">Mountain</option>
-                        <option value="river">River</option>
-                        </select>
-                        <br><br>
-                    <label class="p-2 text-gray-800 text-left" for="postTitle">Post Title:</label><br>
-                    <input class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2" type="text" id="favoriteBook" name="favoriteBook"><br><br>
-                    <label class="p-2 text-gray-800 text-left" for="postBody">Post Body:</label><br>
-                    <textarea class="bg-gradient-to-b from-green-800 to-green-900 text-white rounded-lg p-2 w-16 text-left" name="message" style="width:500; height:300;">
-                        </textarea><br>
-                  </form>
+                <div class="p-2 text-gray-900">
+                    <p>The Alechemist is awesome!</p>
+                    <br>
+                    <p class="p-2 font-bold text-gray-900">I read the Alchemist over the long weekend and had a great time. I really liked the part with the potions.
+                    </p>
+                </div>
+                
                     <div class="mb-1 mx-3xl font-extrabold text-3xl text-yellow-100 text-center">
+                        <br><br>
                         <div class="inline-block bg-gradient-to-b from-green-600 to-green-700 mx-10 px-10 directory shadow-2xl">
-                            <button class="mx-4xl m-3 new-post-submit">Submit</button> 
+                            <button class="mx-4xl m-3 new-post-submit">Back</button> 
                         </div>
                         <br><br><br>
                     </div>
                 </div>
             </div>
-            <div class="w-3/4 side-image">
-            </div>
       </div>
 
-      <main class="w-screen flex justify-center mx-auto shadow-2xl jumbo">
+      <div class="bg-gradient-to-t from-green-700 to-green-900 p-4 mx-auto flex shadow-inner text-center justify-center"></div>
+
+      <!-- <main class="w-screen flex justify-center mx-auto shadow-2xl jumbo">
         <div class="text-center mt-4 mb-4 justify-center flex">
             <br><br>
-            <!-- <img src="/images/library-2.jpeg" alt="Library"> -->
+            <img src="/images/library-2.jpeg" alt="Library">
             <br><br>
         </div>
     </main>
@@ -116,8 +125,7 @@
         </div> -->
   </div>
      
-    </div>
-      <!-- div container for posts -->
+</div>
       
 
  </body>
