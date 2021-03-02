@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Event handler for when the post for is submitted
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
     console.log("submit btn pressed...")
 
     // Make sure the form isn't empty
@@ -33,11 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Object that will be sent to the db
+    // Objects that will be sent to the db
+
+    const newUser = {
+        name = name.value.trim(),
+        caption = caption.value.trim(),
+        favoriteBook = favoriteBook.value.trim(),
+        clubName = clubName.value(),
+    }
+    
     const newPost = {
-      title: titleInput.value.trim(),
-      body: bodyInput.value.trim(),
-      AuthorId: authorSelect.value,
+        postTitle = postTitle.value.trim(),
+        postBody = postBody.value.trim()
     };
 
     // Update a post if flag is true, otherwise submit a new one
@@ -48,6 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
       submitPost(newPost);
     }
   };
+
+
+    // Submits new post then redirects
+    const submitPost = (post) => {
+        fetch('/api/posts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(post),
+        })
+          .then(() => {
+            window.location.href = '/blog';
+          })
+          .catch((err) => console.error(err));
+      };
 
     // Get query parameter
     const url = window.location.search;
@@ -89,29 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     
   
-    // Submits new post then redirects
-    const submitPost = (post) => {
-      fetch('/api/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(post),
-      })
-        .then(() => {
-          window.location.href = '/blog';
-        })
-        .catch((err) => console.error(err));
-    };
-  
 
-    function jerry() {
-        console.log('jerry');
-    }
     // Handle submit button press
     submitBtn.addEventListener('click', function (){
-        console.log("jerry logging");
-        jerry();
+        console.log("submit button pressed");
+        handleFormSubmit();
+    
 
     });
 
