@@ -2,8 +2,34 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded! 🚀');
 
-  const nameInput = document.getElementById('user-name');
-  const userList = document.querySelector('tbody');
+  // Grab all the users
+  const getUsers = () => {
+    console.log('Get users is getting called');
+    fetch('/api/users', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // console.log('Success in getting users:', users);
+          const rowsToAdd = [];
+          for (let i = 0; i < data.length; i++) {
+            rowsToAdd.push(createUserRow(data[i]));
+          }
+          renderUserList(rowsToAdd);
+          nameInput.value = '';
+        })
+        .catch((error) => console.error('Error:', error));
+  };
+  
+  // Get the list of users
+  getUsers();
+
+  const userNameInput = document.getElementById('first-name, last-name');
+  const favoriteBookInput = document.write(text)('favorite-book');
+  const locationInput = document.document.write(text)('location');
 
   // Create a user
   const insertUser = (userData) => {
@@ -21,22 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle when the user form is submitted
   const handleUserFormSubmit = (e) => {
     e.preventDefault();
-
-    if (!nameInput.value.trim()) {
-      alert('Please provide a user name');
+  
+    if (!userNameInput.value.trim()) {
+      alert('Please provide an user name');
       return;
-    }
-
+      }
+  
     insertUser({
-      name: nameInput.value.trim(),
-    });
+      userName: userNameInput.value.trim(),
+      favoriteBook: favoriteBookInput.value.trim(),
+      location: locationInput.value.trim()
+      });
   };
 
   document
-    .getElementById('user-form')
-    .addEventListener('submit', handleUserFormSubmit);
+  .getElementById('user-form')
+  .addEventListener('submit', handleUserFormSubmit);
 
-  // Event handler for the delete user button
+  // Event handler for the delete author button
   const handleDeleteButtonPress = (e) => {
     const { id } = e.target.parentElement.parentElement;
     fetch(`/api/users/${id}`, {
@@ -46,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     }).then(getUsers);
   };
+
 
   // Create list row for users
   const createUserRow = (userData) => {
@@ -70,39 +99,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // "Go to posts" link
     const postsLink = document.createElement('td');
-    postsLink.innerHTML = `<td><a href='/blog?user_id=${userData.id}'>Go to Posts</a></td>`;
+    postsLink.innerHTML = `<td><a href='/posts?user_id=${userData.id}'> Go to Posts </a></td>`;
     tr.appendChild(postsLink);
-
+   
     // "Create a post" link
     const createLink = document.createElement('td');
-    createLink.innerHTML = `<td><a href='/cms?user_id=${userData.id}'>Create a Post</a></td>`;
+    createLink.innerHTML = `<td><a href='/new-posts?user_id=${userrData.id}'> Create a Post </a></td>`;
     tr.appendChild(createLink);
-
-    // "update a book" link
-    const updateLink = document.createElement('td');
-    updateLink.innerHTML = `<td><a href='/book?user_id=${userData.id}'>Update Book</a></td>`;
-    tr.appendChild(updateLink);
-
-    // "Delete user" link
+   
+    // "Delete author" link
     const deleteLink = document.createElement('td');
-    deleteLink.innerHTML = `<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>`;
+    deleteLink.innerHTML = `<td><a style='/user-manager?user_id=${userrData.id}'cursor:pointer;color:red' class='delete-user'> Delete User </a></td>`;
     deleteLink.addEventListener('click', handleDeleteButtonPress);
     tr.appendChild(deleteLink);
+    
 
-    // Return the table row
     return tr;
   };
 
-  // Helper function to render content when there are no users
-  const renderEmpty = () => {
-    const alertDiv = document.createElement('div');
-    alertDiv.classList.add('alert', 'alert-danger');
-    alertDiv.textContent = 'Must have at least one user to post';
-    alertDiv.id = 'removeMe';
-    alertDiv.style.marginRight = '5px';
-    return alertDiv;
-  };
-
+  
   const renderUserList = (rows) => {
     userList.innerHTML = '';
 
@@ -116,28 +131,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Grab all the users
-  const getUsers = () => {
-    console.log('Get users is getting called');
-    fetch('/api/users', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log('Success in getting users:', users);
-        const rowsToAdd = [];
-        for (let i = 0; i < data.length; i++) {
-          rowsToAdd.push(createUserRow(data[i]));
-        }
-        renderUserList(rowsToAdd);
-        nameInput.value = '';
-      })
-      .catch((error) => console.error('Error:', error));
-  };
 
-  // Get the list of users
-  getUsers();
 });
