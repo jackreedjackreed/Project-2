@@ -37,7 +37,9 @@ module.exports = (app) => {
   });
 
   app.post('/api/users', (req, res) => {
-    db.User.create(req.body).then((dbUser) => res.json(dbUser));
+    db.User.create(req.body).then((dbUser) => {
+    console.log(dbUser)
+    res.json(dbUser.dataValues)});
   });
 
   app.delete('/api/users/:id', (req, res) => {
