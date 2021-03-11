@@ -43,10 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clubName: clubName.value.trim(),
     }
     
-    const newPost = {
-        postTitle: postTitle.value.trim(),
-        postBody: postBody.value.trim()
-    };
+    
 
     // // Update a post if flag is true, otherwise submit a new one
     // if (updating) {
@@ -55,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // } else {
     
     submitUser(newUser)
-    submitPost(newPost);
+    
     };
 
     // Submits new user
@@ -66,7 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
         'Content-Type': 'application/json',
         },
         body: JSON.stringify(post),
-    })
+    }).then((response)=>{
+      response.json().then((data)=>{
+        const newPost = {
+          title: postTitle.value.trim(),
+          body: postBody.value.trim(),
+          UserId: data.id
+        };
+        submitPost(newPost);
+      })
+
+}) 
         .catch((err) => console.error(err));
     };
 
@@ -79,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify(post),
         })
-            .then(() => {
+            .then((data) => {
             window.location.href = '/posts';
             })
             .catch((err) => console.error(err));

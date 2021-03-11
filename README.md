@@ -85,7 +85,7 @@ To run test, run the following commands locally:
 * MYSQL
 * Sequelize
 * dotenv
-* Autopefixer
+* Autoprefixer
 
 ## Grading 
 
@@ -99,4 +99,4 @@ To run test, run the following commands locally:
 
 ## Sources:
 * https://github.com/jackreedjackreed/Project-2
-* https://pacific-eyrie-86247.herokuapp.com/
+* https://pacific-eyrie-86247.herokuapp.com
