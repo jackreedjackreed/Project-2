@@ -5,15 +5,15 @@ const db = require('../models');
 
 // Routes
 module.exports = (app) => {
-  app.get('/api/posts', (req, res) => {
-    const query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
+  app.get('/posts', (req, res) => {
     db.Post.findAll({
-      where: query,
-      include: [db.User],
-    }).then((dbPost) => res.json(dbPost));
+      include: [db.User]
+    }).then((dbPost) => {
+      console.log(dbPost)
+      res.render("posts", {posts: dbPost})
+      
+      
+    });
   });
 
   // Get route for retrieving a single post
@@ -28,7 +28,7 @@ module.exports = (app) => {
 
   // POST route for saving a new post
   app.post('/api/posts', (req, res) => {
-    console.log(req.body)
+    //console.log(req.body)
     
     db.Post.create(req.body).then((dbPost) => res.json(dbPost));
      

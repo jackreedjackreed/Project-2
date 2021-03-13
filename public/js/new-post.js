@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(post),
         })
             .then((data) => {
+              console.log({data})
             window.location.href = '/posts';
             })
             .catch((err) => console.error(err));

@@ -290,3 +290,12 @@
 
           <br><br><br>
     </div>
+    <script >
+      fetch('/api/posts')
+      .then(response => response.json())
+        .then((data) => {
+          console.log({data})
+        })
+        .catch((err) => console.error(err));
+      console.log("hello?")
+    </script>
