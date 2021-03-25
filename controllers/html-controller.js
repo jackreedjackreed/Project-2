@@ -29,7 +29,8 @@ module.exports = (app) => {
   );
 
   app.get('/new-post', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/assets/new-post.html'))
+    // res.sendFile(path.join(__dirname, '../public/assets/new-post.html'))
+    res.render("new-post", {})
   );
 
   app.get('/users', (req, res) =>

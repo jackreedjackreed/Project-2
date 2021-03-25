@@ -1,4 +1,5 @@
 // Dependencies
+const moment = require('moment');
 
 // Requiring our models
 const db = require('../models');
@@ -10,7 +11,16 @@ module.exports = (app) => {
       include: [db.User]
     }).then((dbPost) => {
       console.log(dbPost)
-      res.render("posts", {posts: dbPost})
+      const posts = dbPost.map((post)=> {
+return {
+        dataValues: 
+            {
+              ...post.dataValues, //destructoring it out and place it into a property
+              createdAt: moment(post.dataValues.createdAt).format("MMMM Do YYYY, h:mm:ss a")
+            }
+        }
+      })
+      res.render("posts", {posts: posts})
       
       
     });
