@@ -1,23 +1,26 @@
 // Dependencies
 const path = require('path');
 
-// Routes
+// Routes- request handlers
 module.exports = (app) => {
   // Each of the below routes just handles the HTML page that the user gets sent to.
   app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '../public/assets/home.html'))
+    // res.sendFile(path.join(__dirname, '../public/assets/home.html'))
+    res.render("home", {})
   );
 
   app.get('/home', (req, res) =>
-  res.sendFile(path.join(__dirname, '../public/assets/home.html'))
+    // res.sendFile(path.join(__dirname, '../public/assets/home.html'))
+   res.render("home", {}) 
 );
 
-  // app.get('/posts', (req, res) =>
-  //   res.sendFile(path.join(__dirname, '../public/assets/posts.html'))
-  // );
+  app.get('/posts', (req, res) =>
+    res.render(posts)
+  );
 
   app.get('/reference', (req, res) =>
     res.sendFile(path.join(__dirname, '../public/assets/reference.html'))
+    //res.render("reference", {})
   );
 
   app.get('/single-user', (req, res) =>

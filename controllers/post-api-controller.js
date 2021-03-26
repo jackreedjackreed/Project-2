@@ -15,7 +15,7 @@ module.exports = (app) => {
 return {
         dataValues: 
             {
-              ...post.dataValues, //destructoring it out and place it into a property
+              ...post.dataValues, //place it into a property. Spread operator(get everything before it plus change this 1 thing)
               createdAt: moment(post.dataValues.createdAt).format("MMMM Do YYYY, h:mm:ss a")
             }
         }
