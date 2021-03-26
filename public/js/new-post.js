@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleFormSubmit = (event) => {
     // event.preventDefault();
     console.log("submit btn pressed...")
-    console.log(name.value + caption.value + favoriteBook.values + clubName.value + postTitle.value + postBody.value)
+    console.log(name.value + caption.value + favoriteBook.value + clubName.value + postTitle.value + postBody.value)
 
     // Make sure the form isn't empty
     if (
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(post),
         })
             .then((data) => {
+              console.log({data})
             window.location.href = '/posts';
             })
             .catch((err) => console.error(err));

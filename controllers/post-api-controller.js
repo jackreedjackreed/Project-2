@@ -1,19 +1,29 @@
 // Dependencies
+const moment = require('moment');
 
 // Requiring our models
 const db = require('../models');
 
 // Routes
 module.exports = (app) => {
-  app.get('/api/posts', (req, res) => {
-    const query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
+  app.get('/posts', (req, res) => {
     db.Post.findAll({
-      where: query,
-      include: [db.User],
-    }).then((dbPost) => res.json(dbPost));
+      include: [db.User]
+    }).then((dbPost) => {
+      console.log(dbPost)
+      const posts = dbPost.map((post)=> {
+return {
+        dataValues: 
+            {
+              ...post.dataValues, //destructoring it out and place it into a property
+              createdAt: moment(post.dataValues.createdAt).format("MMMM Do YYYY, h:mm:ss a")
+            }
+        }
+      })
+      res.render("posts", {posts: posts})
+      
+      
+    });
   });
 
   // Get route for retrieving a single post
@@ -28,7 +38,7 @@ module.exports = (app) => {
 
   // POST route for saving a new post
   app.post('/api/posts', (req, res) => {
-    console.log(req.body)
+    //console.log(req.body)
     
     db.Post.create(req.body).then((dbPost) => res.json(dbPost));
      

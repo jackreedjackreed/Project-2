@@ -1,3 +1,4 @@
+var compression = require('compression') //To compress files
 const path = require("path");
 const express = require('express');
 
@@ -19,6 +20,9 @@ app.use(express.json());
 // Static directory
 app.use(express.static('public'));
 
+//Enabling compression middleware:
+app.use(compression());
+
 //Set Handlebars.
 const exphbs = require("express-handlebars");
 
@@ -31,6 +35,6 @@ userRouter(app);
 apiRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });

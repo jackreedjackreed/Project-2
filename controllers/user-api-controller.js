@@ -17,7 +17,7 @@ module.exports = (app) => {
      // Send to the view
      res.render('reference', {result});
     }catch(err){  
-      console.log(err);
+      //console.log(err);
     }
   });
 
@@ -38,7 +38,7 @@ module.exports = (app) => {
 
   app.post('/api/users', (req, res) => {
     db.User.create(req.body).then((dbUser) => {
-    console.log(dbUser)
+    //console.log(dbUser)
     res.json(dbUser.dataValues)});
   });
 
